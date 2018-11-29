@@ -17,4 +17,7 @@ for user in users:
         name = random.choice(users)
     targets.append(name)
 
-print(targets)
+targets = [x + '\n' for x in targets]
+
+with open("targets.txt", "w") as w:
+    w.writelines(targets)
