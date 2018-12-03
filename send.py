@@ -28,18 +28,22 @@ def main():
     This is where the magic happens
     """
     emails = []
-    with open("emails.txt", "r") as r:
+    with open("users.txt", "r") as r:
         emails = [x.replace('\n', '') for x in r.readlines()]
+
+    targets = []
+    with open("targets.txt", "r") as r:
+        targets = [x.replace('\n', '') for x in r.readlines()]
 
     user_input = input(f"Send the message to {len(emails)} recipients? (Y/n): ")
     if user_input != 'Y':
         print("Abort.")
         SERVER.quit()
         exit()
-    print(emails)
 
-    for email in tqdm(emails):
-        send_mail(email, message.INVITATION)
+    for email in enumerate(emails):
+        send_mail(emails[1], message.modify_reveal(targets[email[0]]))
+        print(email[1] + " -> " + targets[email[0]])
     SERVER.quit()
 
 if __name__ == '__main__':

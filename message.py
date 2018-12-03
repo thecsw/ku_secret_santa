@@ -46,3 +46,62 @@ def modify_message(message, toaddr):
         "From: KU Secret Santa",
         f"To: {toaddr}"
     ]) + message
+
+CONFIRMATION = """
+Subject: Your KU Secret Santa confirmation!
+
+HO HO HO!
+
+Thank you for choosing to participate in KU Secret Santa! Please know that you are a cool guy/gal!
+
+This message serves as a confirmation of your participation and there is no way back. (Though you can easily just bail out and I will add you on my naughty list for this year and all of the years to come until you will start believing in magic again)
+
+Start looking for a gift that you will give to a total stranger that might become your friend! It might be a christmas hat, a toilet seat, brussel sprouts wrapped as chocolates! Let your imagination go wild!
+
+Giving gifts is one of the best ways to start a relationship! I will reach back to you on December 2nd. At the end of the weekend, the email address of your special person will be revealed and let the magic of Christmas do the rest!
+
+Thank you for participating in this wonderful event and have a great rest of the week! One week to go and you are done with your Fall semester!
+
+XOXOXO,
+KU Secret Santa
+
+P.S. I am really sorry about the duplicate! My reindeer kicked my typewriter and it sent the message without a subject!
+"""
+
+SECRET_REVEAL = """
+Subject: Your KU Secret Santa reveal!
+
+HO HO HO!
+
+Hey there! Hope you all had an amazing weekend because it is time to reveal your KU Secret Santa reveal! Hope you have a gift for them!
+
+Your lucky recipient is: %EMAIL_ADDRESS%
+
+The procedure should be simple:
+ - Message them
+ - Make a meeting
+ - Give your present
+ - Have an amazing time together!
+
+Please share your presents using the #kusecretsanta hashtag and/or email your picture to me! A fine addition to my collection.
+
+I really hope you enjoyed the first KU Secret Santa! This is the last message from me. See you next year!
+
+With love,
+KU Secret Santa
+
+------------------
+ORGANIZERS
+------------------
+ - Sagindyk Urazayev: Core Developer, HEAD ORGANIZER
+ - Andrew Moore: Assistant Core Developer, FRESHMAN SENATOR
+ - Jacob McNamee: Assistant to the Core Developer, BEET FARMER
+
+"""
+
+def modify_reveal(email):
+    """
+    Puts an email
+    """
+    return SECRET_REVEAL.\
+        replace("%EMAIL_ADDRESS%", email)
