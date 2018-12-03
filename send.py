@@ -42,7 +42,7 @@ def main():
         exit()
 
     for email in enumerate(emails):
-        send_mail(emails[1], message.modify_reveal(targets[email[0]]))
+        send_mail(email[1], message.modify_reveal(targets[email[0]]))
         print(email[1] + " -> " + targets[email[0]])
     SERVER.quit()
 
